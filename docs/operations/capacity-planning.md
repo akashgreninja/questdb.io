@@ -140,7 +140,7 @@ QuestDB will allocate CPU resources differently depending on how many CPU cores
 are available. This behavior is the default but can be overridden via
 configuration.
 
-#### 8 CPU Cores or less
+#### 8 CPU cores or less
 
 QuestDB will configure a shared worker pool to handle everything except the
 InfluxDB line protocol (ILP) writer which gets a dedicated CPU core. The worker
@@ -150,7 +150,7 @@ $(cpuAvailable) - (line.tcp.writer.worker.count)$
 
 Minimal size of the shared worker pool is 2, even on a single-core machine.
 
-#### 16 CPU Cores or less
+#### 16 CPU cores or less
 
 ILP I/O Worker pool is configured to use 2 CPU cores to speed up ingestion and
 the ILP Writer is using 1 core. The shared worker pool is handling everything
@@ -162,7 +162,7 @@ For example, with 16 cores, the shared pool will have 12 threads:
 
 $16-1-2-1$
 
-#### 17 CPU Cores and more
+#### 17 CPU cores and more
 
 The ILP I/O Worker pool is configured to use 6 CPU cores to speed up ingestion
 and the ILP Writer is using 1 core. The shared worker pool is handling
@@ -223,10 +223,10 @@ pg.worker.affinity=1,2,3,4
 
 ## Network Configuration
 
-For InfluxDB line, Postgres wire and HTTP protocols, there are a set of
-configuration settings relating to the number of clients that may connect, the
-internal I/O capacity and connection timeout settings. These settings are
-configured in the `server.conf` file in the format:
+For InfluxDB line, PGWire and HTTP protocols, there are a set of configuration
+settings relating to the number of clients that may connect, the internal I/O
+capacity and connection timeout settings. These settings are configured in the
+`server.conf` file in the format:
 
 ```ini
 <protocol>.net.connection.<config>
@@ -235,7 +235,7 @@ configured in the `server.conf` file in the format:
 Where `<protocol>` is one of:
 
 - `http` - HTTP connections
-- `pg` - Postgres wire protocol
+- `pg` - PGWire protocol
 - `line.tcp` - InfluxDB line protocol over TCP
 
 And `<config>` is one of the following settings:
@@ -284,15 +284,12 @@ line.tcp.net.rcvbuf=1m
 For reference on the defaults of the `http` and `pg` protocols, refer to the
 [server configuration page](/docs/reference/configuration).
 
-For ILP TCP receiver, refer to the dedicated
-[Capacity planning page](/docs/reference/api/ilp/tcp-receiver#capacity-planning).
-
-### Pooled connection configuration
+### Pooled connection
 
 The maximum number of pooled connections is configurable for PGWire
-(`pg.connection.pool.capacity`) and ILP (`line.tcp.connection.pool.capacity`).
-When using connection pooling for PGWire or ILP, users should avoid using too
-many connections.
+(`pg.connection.pool.capacity`) and ILP over TCP
+(`line.tcp.connection.pool.capacity`). When using connection pooling for PGWire
+or ILP, users should avoid using too many connections.
 
 ## OS configuration
 
