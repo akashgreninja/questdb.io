@@ -105,8 +105,10 @@ exceed the limit for that particular type, savings on disk space can be made.
 
 ## Query capacity
 
-Row serialization/deserialization has a cost on both client and server. The QuestDB Web Console limits fetching to 10,000 dataset.
-When fetching a large (10K+) dataset via a single query using other methods, consider using pagination, hence multiple queries instead.
+Row serialization/deserialization has a cost on both client and server. The
+QuestDB Web Console limits fetching to 10,000 dataset. When fetching a large
+(10K+) dataset via a single query using other methods, consider using
+pagination, hence multiple queries instead.
 
 ## CPU configuration
 
@@ -190,8 +192,8 @@ dedicated to capacity planning for ILP ingestion.
 
 :::note
 
-The UDP receiver is deprecated since QuestDB version 6.5.2.
-We recommend the [TCP receiver](/docs/reference/api/ilp/tcp-receiver/) instead.
+The UDP receiver is deprecated since QuestDB version 6.5.2. We recommend the
+[TCP receiver](/docs/reference/api/ilp/tcp-receiver/) instead.
 
 :::
 
@@ -278,12 +280,15 @@ line.tcp.net.rcvbuf=1m
 For reference on the defaults of the `http` and `pg` protocols, refer to the
 [server configuration page](/docs/reference/configuration).
 
-For ILP TCP receiver, refer to the dedicated [Capacity planning page](/docs/reference/api/ilp/tcp-receiver#capacity-planning).
+For ILP TCP receiver, refer to the dedicated
+[Capacity planning page](/docs/reference/api/ilp/tcp-receiver#capacity-planning).
 
 ### Pooled connection configuration
 
-The maximum number of pooled connections is configurable for PGWire (`pg.connection.pool.capacity`) and ILP  (`line.tcp.connection.pool.capacity`).
-When using connection pooling for PGWire or ILP, users should avoid using too many connections.
+The maximum number of pooled connections is configurable for PGWire
+(`pg.connection.pool.capacity`) and ILP (`line.tcp.connection.pool.capacity`).
+When using connection pooling for PGWire or ILP, users should avoid using too
+many connections.
 
 ## OS configuration
 
@@ -297,9 +302,9 @@ done in response to such OS errors.
 
 The storage model of QuestDB has the benefit that most data structures relate
 closely to the file system, with columnar data being stored in its own `.d` file
-per partition. In edge cases with extremely large tables, frequent out-of-order ingestion, or high number of table partitions, the number of open
-files may hit a user or system-wide maximum limit and can cause unpredictable
-behavior.
+per partition. In edge cases with extremely large tables, frequent out-of-order
+ingestion, or high number of table partitions, the number of open files may hit
+a user or system-wide maximum limit and can cause unpredictable behavior.
 
 The following commands allow for checking current user and system limits for
 maximum number of open files:
