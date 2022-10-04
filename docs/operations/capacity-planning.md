@@ -11,7 +11,7 @@ elements, depending on the expected demands of the system. This page describes
 configuring these system resources with example scenarios that align with both
 edge cases and common setup configurations.
 
-All the configuration settings referred to below except for OS settings are
+Most of the configuration settings referred to below except for OS settings are
 configured in QuestDB by either a `server.conf` configuration file or as
 environment variables. For more details on applying configuration settings in
 QuestDB, refer to the [configuration](/docs/reference/configuration) page.
@@ -25,7 +25,7 @@ of data and filesystem considerations.
 
 - QuestDB officially supports **EXT4** or any filesystem that supports
   [mmap](https://man7.org/linux/man-pages/man2/mmap.2.html).
-
+- The ZFS file system is supported but QuestDB does not test against it yet.
 - Users **can't use NFS or a similar distributed filesystem** directly with a
   QuestDB database.
 
@@ -102,6 +102,11 @@ exceed the limit for that particular type, savings on disk space can be made.
 | byte  | 8 bits            | -128 to 127               |
 | short | 16 bits           | -32768 to 32767           |
 | int   | 32 bits           | -2147483648 to 2147483647 |
+
+## Query capacity
+
+Row serialization/deserialization has a cost on both client and server. The QuestDB Web Console limits fetching to 10,000 dataset.
+When fetching a large (10K+) dataset via a single query using other methods, consider using pagination, hence multiple queries instead.
 
 ## CPU configuration
 
@@ -271,7 +276,14 @@ line.tcp.net.rcvbuf=1m
 ```
 
 For reference on the defaults of the `http` and `pg` protocols, refer to the
-[server configuration page](/docs/reference/configuration)
+[server configuration page](/docs/reference/configuration).
+
+For ILP TCP receiver, refer to the dedicated [Capacity planning page](/docs/reference/api/ilp/tcp-receiver#capacity-planning).
+
+### Pooled connection configuration
+
+The maximum number of pooled connections is configurable for PGWire (`pg.connection.pool.capacity`) and ILP  (`line.tcp.connection.pool.capacity`).
+When using connection pooling for PGWire or ILP, users should avoid using too many connections.
 
 ## OS configuration
 
