@@ -16,6 +16,10 @@ configured in QuestDB by either a `server.conf` configuration file or as
 environment variables. For more details on applying configuration settings in
 QuestDB, refer to the [configuration](/docs/reference/configuration) page.
 
+To monitor various metrics of the QuestDB instances, refer to the
+[Prometheus monitoring page](/docs/third-party-tools/prometheus/) or the
+[Health monitoring page](/docs/operations/health-monitoring/).
+
 ## Storage and filesystem
 
 The following sections describe aspects to be considered regarding the storage
