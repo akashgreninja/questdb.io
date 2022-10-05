@@ -107,13 +107,6 @@ exceed the limit for that particular type, savings on disk space can be made.
 | short | 16 bits           | -32768 to 32767           |
 | int   | 32 bits           | -2147483648 to 2147483647 |
 
-## Query capacity
-
-Row serialization/deserialization has a cost on both client and server. The
-QuestDB Web Console limits fetching to 10,000 dataset. When fetching a large
-(10K+) dataset via a single query using other methods, consider using
-pagination, hence multiple queries instead.
-
 ## CPU configuration
 
 In QuestDB, there are worker pools which can help separate CPU-load between
