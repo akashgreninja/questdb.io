@@ -49,8 +49,20 @@ Appropriate us of [indexes](/docs/concept/indexes/) provides faster read access 
 
 ## CPU configuration
 
+This section describes configuration strategies based on the
+forecast behavior of the database.
+
+### RAM size
+
+We recommend having at least 8GB of RAM for basic workloads and 32GB for more advanced ones.
+
+For relatively small datasets, typically a few to a few dozen GB, if the need for reads is high, performance can benefit from maximizing the use of the OS page cache. Users may consider increasing available RAM to improve the speed of read operations.
+
 ### High disk write rate combined with high write amplification
 
 ### High RSS value (memory consumption) on write-most loads
 
-### High disk read rate on a small dataset
+## OS configuration
+
+
+High disk read rate on a small dataset
