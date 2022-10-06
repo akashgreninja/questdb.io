@@ -60,7 +60,9 @@ For relatively small datasets, typically a few to a few dozen GB, if the need fo
 
 ### High disk write rate combined with high write amplification
 
-### High RSS value (memory consumption) on write-most loads
+### Memory page size configuration
+
+For frequent out-of-order (O3) writes over high number of columns/tables, the performance may be impacted by the size of the memory page being too big as this increases the demand for RAM.16M by default. The memory page, `cairo.o3.column.memory.size`, is set to 16M by default. Decreasing the value in the interval of [128K, 8M] based on the number of columns used may improve O3 write performance.
 
 ## OS configuration
 
