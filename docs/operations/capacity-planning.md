@@ -1,8 +1,7 @@
 ---
 title: Capacity planning
 description:
-  How to plan and configure system resources available to QuestDB to ensure that
-  server operation continues uninterrupted.
+  How to plan and configure system resources, database configuration, and client application code available to QuestDB to ensure that server operation continues uninterrupted.
 ---
 
 Capacity planning should be considered as part of the requirements of deploying
