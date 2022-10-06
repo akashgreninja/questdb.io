@@ -60,7 +60,9 @@ This section contains resources for managing QuestDB instances and has dedicated
 pages for the following topics:
 
 - [Capacity planning](/docs/operations/capacity-planning) for configuring
-  server settings and system resources for common scenarios and edge cases
+  server settings and system resources for common scenarios
+- [Advanced capacity planning](/docs/operations/advanced-capacity-planning) for configuring
+  more advanced server settings and system resources for edge cases
 - [Data retention](/docs/operations/data-retention) strategy to delete old data
   and save disk space
 - [Health monitoring](/docs/operations/health-monitoring) endpoint for
