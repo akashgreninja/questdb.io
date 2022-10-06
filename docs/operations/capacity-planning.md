@@ -1,7 +1,9 @@
 ---
 title: Capacity planning
 description:
-  How to plan and configure system resources, database configuration, and client application code available to QuestDB to ensure that server operation continues uninterrupted.
+  How to plan and configure system resources, database configuration, and client
+  application code available to QuestDB to ensure that server operation
+  continues uninterrupted.
 ---
 
 Capacity planning should be considered as part of the requirements of deploying
@@ -278,10 +280,14 @@ For reference on the defaults of the `http` and `pg` protocols, refer to the
 
 ### Pooled connection
 
-The maximum number of pooled connections is configurable for PGWire
-(`pg.connection.pool.capacity`) and ILP over TCP
-(`line.tcp.connection.pool.capacity`). When using connection pooling for PGWire
-or ILP, users should avoid using too many connections.
+Connection pooling should be used for any production-ready use of PGWire or ILP
+over TCP.
+
+The maximum number of pooled connections is configurable,
+(`pg.connection.pool.capacity` for PGWire and
+(`line.tcp.connection.pool.capacity` for ILP over TCP. The default number of
+connections for both interfaces is 64. Users should avoid using too many
+connections.
 
 ## OS configuration
 
