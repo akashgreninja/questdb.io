@@ -77,11 +77,11 @@ module.exports = {
       type: "category",
       items: [
         "operations/capacity-planning",
+        "operations/advanced-capacity-planning"
         "operations/data-retention",
         "operations/health-monitoring",
         "operations/backup",
         "operations/updating-data",
-        "operations/advanced-capacity-planning"
       ],
     },
     {

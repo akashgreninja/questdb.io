@@ -40,7 +40,7 @@ We recommend that users check the JVM and GC metrics via [Prometheus monitoring]
 
 [Symbol capacity](/docs/concept/symbol#usage-of-symbols) should be the same or slightly larger than the count of distinct symbol values.
 
-Undersized symbol columns slows down query performance.
+Undersized symbol columns slow down query performance.
 Similarly, there is a performance impact when symbol is not used for its designed way, most commonly assigning `symbol` to columns with too many distinct values. It is crucial to choose a suitable [data type](/docs/reference/sql/datatypes/) based on the nature of the dataset.
 
 ### Index
