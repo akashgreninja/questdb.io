@@ -77,7 +77,7 @@ module.exports = {
       type: "category",
       items: [
         "operations/capacity-planning",
-        "operations/advanced-capacity-planning"
+        "operations/advanced-capacity-planning",
         "operations/data-retention",
         "operations/health-monitoring",
         "operations/backup",
