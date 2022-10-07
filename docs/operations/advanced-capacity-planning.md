@@ -80,15 +80,18 @@ read operations.
 
 ### Write amplification
 
-When ingesting out-of-order data over InfluxDB Line Protocol (ILP), high disk
-write rate combined with high write amplification may slow down the performance.
-To resolve this, start with adjusting the
+When ingesting out-of-order data, high disk write rate combined with high write
+amplification may slow down the performance.
+
+For data ingestion over InfluxDB Line Protocol (ILP), the first step to resolve
+this start from adjusting the
 [commit lag](/docs/guides/out-of-order-commit-lag/) value and the
 `cairo.max.uncommitted.rows` value.
 
-In addition, for tables with partition directories exceeding a few hundred MBs
-on disk, smaller [partitions](/docs/concept/partitions/) can reduce the write
-amplification, that is to say, partition by day can be changed to by hour,
+For data ingestion over PGWire, or as a further step for ILP ingestion, smaller
+table [partitions](/docs/concept/partitions/) maybe reduce the write
+amplification. This applies to tables with partition directories exceeding a few
+hundred MBs on disk. For example, partition by day can be reduced to by hour,
 partition by month to by day, and so on.
 
 :::note
@@ -99,8 +102,8 @@ partition by month to by day, and so on.
   [metrics](/docs/third-party-tools/prometheus#scraping-prometheus-metrics-from-questdb)
   `questdb_physically_written_rows_total` / `questdb_committed_rows_total`.
 - Partitions are defined when a table is created. Refer to
-  [CREATE TABLE](/docs/reference/sql/create-table/) for more information. 
-  
+  [CREATE TABLE](/docs/reference/sql/create-table/) for more information.
+
 :::
 
 ### Memory page size configuration
